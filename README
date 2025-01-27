@@ -1,0 +1,38 @@
+
+Fix for Wireguard disconnecting in Ubuntu 24.04
+-----------------------------------------------
+
+Articles:
+https://www.reddit.com/r/WireGuard/comments/er2hq8/wireguard_monitoringauto_restart
+https://wiki.archlinux.org/title/WireGuard#Endpoint_with_changing_IP
+
+Reresolve DNS path in Ubuntu:
+/usr/share/doc/wireguard-tools/examples/reresolve-dns/reresolve-dns.sh
+
+Checkout:
+git clone https://github.com/Jiteshprm/wireguard-reresolve-dns.git
+cd wireguard-reresolve-dns/service/
+
+To start Run:
+chmod +x start_all_services.sh
+sudo ./start_all_services.sh
+sudo systemctl status wireguard-reresolve-dns.service
+
+To stop all Run:
+chmod +x stop_all_services.sh
+sudo ./stop_all_services.sh
+sudo systemctl status wireguard-reresolve-dns.service
+
+Check timers:
+systemctl list-timers
+systemctl list-timers --all
+systemctl list-timers --user
+
+Check trigger:
+systemd-analyze calendar *:0/30
+
+  Original form: *:0/30
+Normalized form: *-*-* *:00/30:00
+    Next elapse: Mon 2025-01-27 00:30:00 GMT
+       (in UTC): Mon 2025-01-27 00:30:00 UTC
+       From now: 21min left
